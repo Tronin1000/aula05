@@ -1,20 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator, NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { HomeScreen } from './src/screens/HomeScreen'
+import { ProfileScreen } from './src/screens/ProfileScreen'
+import { FeedScreen } from './src/screens/FeedScreen'
+
+
+type StackParamList = {
+
+  Home: undefined;
+  Profile: undefined;
+  Feed: undefined;
+}
+
+ export type HomeNavigationProps = NativeStackNavigationProp <StackParamList, "Home">
+
+const { Navigator, Screen } = createNativeStackNavigator<StackParamList>()
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+    <NavigationContainer>
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+      <Navigator>
+        <Screen name='Home' component={HomeScreen} />
+        <Screen name='Profile' component={ProfileScreen} />
+        <Screen name='Feed' component={FeedScreen} />
+
+      </Navigator>
+
+    </NavigationContainer>
+  )
+} 
