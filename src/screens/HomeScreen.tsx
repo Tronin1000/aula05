@@ -1,17 +1,15 @@
 import { View, Text, Button, StyleSheet } from "react-native"
-import { HomeNavigationProps } from "../../App";
+import { HomeScreenProps } from "../types/navigation";
 
 
-type HomeScreenProps = {
-    navigation: HomeNavigationProps
-}
+
 
 export const HomeScreen = ({ navigation }:HomeScreenProps) => {
     return (
         <View style={styles.container}>
         <Text>Tela Home</Text>
-        <Button title='ir para Profile' onPress={()=> navigation.navigate("Profile")}/>
-        <Button title='ir para Feed' onPress={()=> navigation.navigate("Feed")} /> n
+        <Button title='ir para Profile' onPress={()=> navigation.navigate("Profile", {name: "Tiago"})}/>
+        <Button title='ir para Feed' onPress={()=> navigation.navigate("Feed")} /> 
         </View>
 
     );

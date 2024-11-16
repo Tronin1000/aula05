@@ -1,18 +1,10 @@
 import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator, NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { HomeScreen } from './src/screens/HomeScreen'
 import { ProfileScreen } from './src/screens/ProfileScreen'
 import { FeedScreen } from './src/screens/FeedScreen'
+import { StackParamList } from './src/types/navigation'
 
-
-type StackParamList = {
-
-  Home: undefined;
-  Profile: undefined;
-  Feed: undefined;
-}
-
- export type HomeNavigationProps = NativeStackNavigationProp <StackParamList, "Home">
 
 const { Navigator, Screen } = createNativeStackNavigator<StackParamList>()
 
